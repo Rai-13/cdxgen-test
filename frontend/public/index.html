@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f5">
+  <title>Northstar | Private Client Workspace</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Northstar home"><span class="brand-icon"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 3.5 21.7 14l10.8 4-10.8 3.9L18 32.5l-3.8-10.6L3.5 18l10.7-4L18 3.5Z"/><circle cx="18" cy="18" r="3.2"/></svg></span><span><b>northstar</b><small>PRIVATE CLIENT</small></span></a>
+      <div class="workspace-switch"><span class="workspace-avatar">N</span><span><b id="workspace-name">Northstar Capital</b><small>Operations workspace</small></span><span class="chevron">⌄</span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview</button>
+        <button class="nav-item" data-view="files"><span class="nav-icon">▤</span> Documents <span class="nav-count">128</span></button>
+        <button class="nav-item" data-view="activity"><span class="nav-icon">◷</span> Activity</button>
+        <button class="nav-item" data-view="crypto"><span class="nav-icon">⌘</span> Crypto posture <span class="nav-dot"></span></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><span class="help-mark">?</span><b>Need a hand?</b><p>Contact your workspace administrator for access or security questions.</p><a href="mailto:security@example.test">Contact support <span>↗</span></a></div><div class="profile"><span class="profile-avatar">PC</span><span><b>Prateek Chen</b><small>Workspace admin</small></span><span class="more">···</span></div></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar"><div class="breadcrumbs">Northstar Capital <span>/</span> <b id="crumb">Overview</b></div><div class="top-actions"><span class="environment"><i></i> SANDBOX</span><button id="refresh" class="icon-button" aria-label="Refresh workspace" title="Refresh">↻</button><button class="user-button"><span class="profile-avatar small-avatar">PC</span><span>Prateek Chen</span><span class="chevron">⌄</span></button></div></header>
+      <div id="load-error" class="load-error" hidden></div>
+
+      <section class="view active" id="view-overview">
+        <div class="page-heading"><div><div class="eyebrow"><span id="current-date"></span> <span class="heading-divider">·</span> CLIENT OPERATIONS</div><h1>Good morning, Prateek <span class="wave">✳</span></h1><p>Here’s what’s happening across your private client workspace.</p></div><button class="primary-button" data-go="files"><span>＋</span> Browse documents</button></div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-top"><span>Total documents</span><span class="metric-icon mint">▤</span></div><div class="metric-value" id="metric-docs">—</div><div class="metric-foot"><span class="positive">↑ 12</span> added this month</div></article>
+          <article class="metric-card"><div class="metric-top"><span>Shared externally</span><span class="metric-icon blue">↗</span></div><div class="metric-value" id="metric-shared">—</div><div class="metric-foot">Across <b>6 client relationships</b></div></article>
+          <article class="metric-card"><div class="metric-top"><span>Pending review</span><span class="metric-icon gold">◷</span></div><div class="metric-value" id="metric-pending">—</div><div class="metric-foot"><span class="attention">Needs your attention</span></div></article>
+          <article class="metric-card risk-card"><div class="metric-top"><span>Crypto findings</span><span class="metric-icon rose">⌘</span></div><div class="metric-value" id="metric-findings">—</div><div class="metric-foot"><span class="risk-text">Weak algorithms detected</span><button class="text-link" data-go="crypto">Review →</button></div></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel documents-panel"><div class="panel-heading"><div><div class="panel-kicker">YOUR WORKSPACE</div><h2>Recent documents</h2></div><button class="quiet-button" data-go="files">View all <span>→</span></button></div><div class="table-scroll"><table><thead><tr><th>DOCUMENT</th><th>OWNER</th><th>LAST UPDATED</th><th>SECURITY</th></tr></thead><tbody id="documents-body"><tr><td colspan="4" class="table-placeholder">Loading workspace data…</td></tr></tbody></table></div><div class="panel-footer"><span class="sync-indicator"><i></i> Synced just now</span><span>Workspace data is fictional</span></div></section>
+          <section class="panel posture-panel"><div class="panel-heading"><div><div class="panel-kicker">SECURITY OVERVIEW</div><h2>Protection status</h2></div><span class="status-pill status-review">Review needed</span></div><div class="score-wrap"><div class="score-ring"><div><strong>42</strong><small>/ 100</small></div></div><div class="score-copy"><b>Needs attention</b><p>Several cryptographic choices need review before this workspace is production ready.</p></div></div><div class="risk-list"><div><span class="risk-bullet critical"></span><span><b>Legacy encryption in use</b><small>DES and ECB mode found</small></span><strong class="risk-number">2</strong></div><div><span class="risk-bullet high"></span><span><b>Weak integrity checks</b><small>MD5 and SHA-1 detected</small></span><strong class="risk-number">2</strong></div><div><span class="risk-bullet high"></span><span><b>Unsafe key material</b><small>Static keys and token sources</small></span><strong class="risk-number">3</strong></div></div><button class="full-link" data-go="crypto">Explore crypto inventory <span>→</span></button></section>
+        </div>
+        <section class="panel activity-panel"><div class="panel-heading"><div><div class="panel-kicker">AUDIT TRAIL</div><h2>Recent activity</h2></div><button class="quiet-button" data-go="activity">View activity <span>→</span></button></div><div class="activity-list" id="activity-preview"></div></section>
+        <div class="demo-banner"><span class="banner-icon">i</span><p><b>Demonstration environment.</b> This fictional workspace intentionally includes weak cryptographic patterns for security inventory testing. Do not use real client data or credentials.</p><span class="demo-tag">LOCAL FIXTURE</span></div>
+      </section>
+
+      <section class="view" id="view-files">
+        <div class="page-heading"><div><div class="eyebrow">CLIENT OPERATIONS</div><h1>Documents</h1><p>Recent files managed in the Northstar client workspace.</p></div><span class="count-chip" id="file-count">128 documents</span></div>
+        <section class="panel documents-panel all-documents"><div class="panel-heading"><div><div class="panel-kicker">DOCUMENT REGISTER</div><h2>All recent documents</h2></div><span class="subtle">Sandbox records</span></div><div class="table-scroll"><table><thead><tr><th>DOCUMENT</th><th>TYPE</th><th>OWNER</th><th>LAST UPDATED</th><th>SECURITY</th></tr></thead><tbody id="all-documents-body"></tbody></table></div></section>
+      </section>
+
+      <section class="view" id="view-crypto">
+        <div class="page-heading"><div><div class="eyebrow">APPLICATION SECURITY <span class="heading-divider">·</span> CRYPTOGRAPHIC INVENTORY</div><h1>Crypto posture</h1><p>Cryptographic operations observed across the Node.js gateway and Java document service.</p></div><span class="status-pill status-review">7 findings to review</span></div>
+        <div class="crypto-summary"><div class="crypto-summary-icon">⌘</div><div><b>Cryptography needs attention</b><p>This demo deliberately uses outdated algorithms and unsafe key handling. Review the source locations with your scanner.</p></div><span class="summary-score">42<small>/100</small></span></div>
+        <div class="crypto-toolbar"><div><div class="panel-kicker">DETECTED OPERATIONS</div><h2>Crypto inventory <span id="crypto-count" class="inline-count">—</span></h2></div><span class="source-legend"><i></i> Java service <i class="node-legend"></i> Node.js gateway</span></div>
+        <div id="crypto-grid" class="crypto-grid"><div class="panel loading-card">Loading cryptographic inventory…</div></div>
+        <div class="source-note"><b>For scanner evaluation</b><p>Runtime examples are returned by both application services. The source files contain the corresponding API calls, algorithms and sample key material for static CBOM analysis. All records and credentials are fictional.</p></div>
+      </section>
+
+      <section class="view" id="view-activity">
+        <div class="page-heading"><div><div class="eyebrow">AUDIT TRAIL</div><h1>Workspace activity</h1><p>A recent timeline of document, access and cryptographic events.</p></div><span class="count-chip">Last 24 hours</span></div>
+        <section class="panel activity-full-panel"><div class="panel-heading"><div><div class="panel-kicker">MONDAY, 12 MAY</div><h2>Latest events</h2></div><span class="subtle">Sandbox timeline</span></div><div id="activity-full" class="activity-list full-list"></div></section>
+      </section>
+
+      <footer class="main-footer"><span>Northstar Private Client <b>·</b> Sandbox workspace</span><span>Build 0.8.14 <b>·</b> Fictional demo data</span></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
